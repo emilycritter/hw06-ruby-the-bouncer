@@ -28,11 +28,12 @@ class Age
       puts "What is your age?"
       answer = gets.chomp
       if answer.to_i.to_s == answer && answer.to_i >= 0
-        if answer.to_i >= 0 && answer.to_i <= 115
-          self.age = answer.to_i
+        answer = answer.to_i
+        if answer >= 0 && answer <= 115
+          self.age = answer
           check_drink
           break
-        elsif answer.to_i > 115
+        elsif answer > 115
           puts "I highly doubt that..."
         end
       else
@@ -63,11 +64,17 @@ class Age
   end
 
   def bounce
-    puts "Sorry youngin, looks like you can't legally do anything yet." if (self.age < self.vote && self.age < self.drink)
-    puts "You can vote!" if self.age >= self.vote
-    puts "You can smoke." if self.age >= self.smoke
-    puts "You can drink!" if self.age >= self.drink
-    puts "You can rent a car." if self.age >= self.car
+    if self.age >= self.car
+      puts "You can do it all - you can vote, smoke, drink, and rent a car."
+    elsif self.age >= self.drink && self.age >= self.vote
+      puts "You can drink, smoke, and vote. You'll have to wait to rent a car."
+    elsif self.age < self.drink && self.age >= self.vote
+      puts "You can vote and smoke, but you can't drink or rent a car yet."
+    elsif self.age >= self.drink && self.age < self.vote
+      puts "You can drink with an adult present."
+    else
+      puts "Sorry youngin, looks like you can't legally do anything yet."
+    end
     puts "Want to play again? (y/n)"
     answer = gets.chomp.downcase
     if answer != 'n'
