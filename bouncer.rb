@@ -75,6 +75,11 @@ class Age
     else
       puts "Sorry youngin, looks like you can't legally do anything yet."
     end
+    play_again_prompt
+  end
+
+  def play_again_prompt
+    puts ""
     puts "Want to play again? (y/n)"
     answer = gets.chomp.downcase
     if answer != 'n'
