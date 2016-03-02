@@ -1,6 +1,6 @@
-# Ruby the Bouncer
+# Ruby Fundamentals
+## Ruby the Bouncer
 ###### Due Tuesday, February 16, 2016
-###### Ruby Fundamentals
 Use ruby to build a program that will verify the ages of anyone using it and tell them what they are able to do at that age.
 
 ## Objectives
